@@ -1,0 +1,14 @@
+# specifiy the version of file to use.
+version: '3'
+
+services:
+  nginx:
+    container_name: HtmlLocalDev
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./VOLUMES/nginx_logs/:/var/log/nginx/
+      - ./VOLUMES/site/:/var/www/site.dev
+    ports:
+      - 8080:80
